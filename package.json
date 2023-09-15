@@ -1,0 +1,39 @@
+{
+  "name": "@sleavely/eslint-plugin-js-rules",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": "Joakim Hedlund <contact@joakimehedlund.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx tsc --noEmit && npx vitest --run src/"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "README.md",
+    "./dist/index.js",
+    "./dist/index.d.ts",
+    "./dist/destructure-env.js",
+    "./dist/destructure-env.d.ts"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.50",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@typescript-eslint/rule-tester": "^6.7.0",
+    "@typescript-eslint/utils": "^6.7.0",
+    "eslint": "^8.45.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.4"
+  }
+}

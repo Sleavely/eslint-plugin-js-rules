@@ -9,6 +9,11 @@
     "build": "npx tsc",
     "test": "npx tsc --noEmit && npx vitest --run src/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sleavely/eslint-plugin-js-rules.git"
+  },
+  "homepage": "https://github.com/Sleavely/eslint-plugin-js-rules",
   "keywords": [
     "eslint",
     "eslintplugin",

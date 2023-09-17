@@ -16,6 +16,10 @@ ruleTester.run('detructure-env', destructureEnv, {
       errors: [{ messageId: 'needsDestructuring' }],
     },
     {
+      code: 'const potato = process.env.potato; console.log(potato)',
+      errors: [{ messageId: 'needsDestructuring' }],
+    },
+    {
       code: `const { env } = process
              console.log(env.potato)`,
       errors: [{ messageId: 'needsDestructuring' }],

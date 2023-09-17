@@ -15,6 +15,7 @@ module.exports = {
   ],
   rules: {
     'js-rules/destructure-env': ['error', 'always'],
+    'js-rules/uppercase-env': ['error', 'always'],
   }
 }
 ```
@@ -48,4 +49,24 @@ console.log(env.potato)
 // ❌ Needs a default string value
 const { potato } = process.env
 console.log(potato)
+```
+
+### js-rules/uppercase-env
+
+```js
+// ✅
+const {
+  POTATO = ""
+} = process.env
+
+// ✅
+console.log(process.env.POTATO)
+
+// ❌
+const {
+  potato = ""
+} = process.env
+
+// ❌
+console.log(process.env.potato)
 ```

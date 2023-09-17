@@ -1,12 +1,12 @@
 import { RuleTester } from '@typescript-eslint/rule-tester';
 
-import destructureEnv from './destructure-env';
+import rule from './destructure-env';
 
 const ruleTester = new RuleTester({
   parser: '@typescript-eslint/parser'
 });
 
-ruleTester.run('detructure-env', destructureEnv, {
+ruleTester.run('detructure-env', rule, {
   valid: [
     `const { potato = "", } = process.env;
          console.log(potato)`,

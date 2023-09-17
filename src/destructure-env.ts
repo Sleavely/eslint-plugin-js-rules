@@ -64,7 +64,7 @@ const destructureEnv: TSESLint.RuleModule<MessageIds, typeof defaultOptions> = {
           })
         } else {
           for (const destructuredProperty of node.parent.id.properties) {
-            if (destructuredProperty.type !== 'Property') return false
+            if (destructuredProperty.type !== 'Property') return;
             if (destructuredProperty.value.type !== 'AssignmentPattern') {
               // TODO: check for forceStringDefault
               context.report({

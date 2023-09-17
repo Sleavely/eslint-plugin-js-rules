@@ -8,7 +8,11 @@ const ruleTester = new RuleTester({
 
 ruleTester.run('detructure-env', destructureEnv, {
   valid: [
-    `const { potato = "", } = process.env; console.log(potato)`,
+    `const { potato = "", } = process.env;
+         console.log(potato)`,
+
+    // ignores interactions with other props
+    `console.log(process.argv)`,
   ],
   invalid: [
     {
@@ -16,26 +20,28 @@ ruleTester.run('detructure-env', destructureEnv, {
       errors: [{ messageId: 'needsDestructuring' }],
     },
     {
-      code: 'const potato = process.env.potato; console.log(potato)',
+      code: `const potato = process.env.potato;
+         console.log(potato)`,
       errors: [{ messageId: 'needsDestructuring' }],
     },
     {
       code: `const { env } = process
-             console.log(env.potato)`,
+         console.log(env.potato)`,
       errors: [{ messageId: 'needsDestructuring' }],
     },
     {
       code: `const { env: renamedEnv } = process
-             console.log(env.potato)`,
+         console.log(env.potato)`,
       errors: [{ messageId: 'needsDestructuring' }],
     },
     {
       code: `const env = process.env
-             console.log(env.potato)`,
+         console.log(env.potato)`,
       errors: [{ messageId: 'needsDestructuring' }],
     },
     {
-      code: 'const { potato } = process.env; console.log(potato)',
+      code: `const { potato } = process.env;
+         console.log(potato)`,
       errors: [{ messageId: 'needsStringDefault' }],
     },
   ],

@@ -14,8 +14,8 @@ module.exports = {
     '@sleavely/js-rules',
   ],
   rules: {
-    'js-rules/destructure-env': ['error', 'always'],
-    'js-rules/uppercase-env': ['error', 'always'],
+    '@sleavely/js-rules/destructure-env': ['error', 'always'],
+    '@sleavely/js-rules/uppercase-env': ['error', 'always'],
   }
 }
 ```
@@ -43,12 +43,34 @@ console.log(env.potato)
 // ❌ Needs destructuring
 const env = process.env
 console.log(env.potato)
-```
 
-```js
 // ❌ Needs a default string value
 const { potato } = process.env
 console.log(potato)
+```
+
+```js
+// ✅
+import foo from 'foo'
+const {
+  ENV_VAR = ''
+} = process.env
+export const foobar = () => foo()
+
+// ❌ Only import/require may appear prior to process.env
+import foo from 'foo'
+export const foobar = () => foo()
+const {
+  ENV_VAR = ''
+} = process.env
+
+// ❌ process.env must be destructured in root scope
+export const logEnv () => {
+  const {
+    ENV_VAR = ''
+  } = process.env
+  console.log(ENV_VAR)
+}
 ```
 
 ### js-rules/uppercase-env

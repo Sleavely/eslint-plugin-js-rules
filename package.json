@@ -1,7 +1,6 @@
 {
   "name": "@sleavely/eslint-plugin-js-rules",
-  "version": "1.0.0",
-  "private": true,
+  "version": "0.0.0",
   "description": "",
   "author": "Joakim Hedlund <contact@joakimhedlund.com>",
   "license": "MIT",

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "author": "Joakim Hedlund <contact@joakimehedlund.com>",
+  "author": "Joakim Hedlund <contact@joakimhedlund.com>",
   "license": "MIT",
   "scripts": {
     "build": "npx tsc",

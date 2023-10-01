@@ -28,29 +28,36 @@ module.exports = {
 
 ### js-rules/destructure-env
 
+Environment variables that affect how the application runs should be easy to find.
+
+Setting default values that are strings will ensure that you never have to deal with "possibly undefined" cases.
+
 ```js
-// ✅ Destructured and has a default string value
-const { potato = "" } = process.env
-console.log(potato)
+// ✅ Destructured and have default string values
+const {
+  ENVIRONMENT = 'dev',
+  POTATO = '',
+} = process.env
+console.log(POTATO)
 
 // ❌ Needs destructuring
-console.log(process.env.potato)
+console.log(process.env.POTATO)
 
 // ❌ Needs destructuring
 const { env } = process
-console.log(env.potato)
+console.log(env.POTATO)
 
 // ❌ Needs destructuring
 const { env: renamedEnv } = process
-console.log(env.potato)
+console.log(env.POTATO)
 
 // ❌ Needs destructuring
 const env = process.env
-console.log(env.potato)
+console.log(env.POTATO)
 
 // ❌ Needs a default string value
-const { potato } = process.env
-console.log(potato)
+const { POTATO } = process.env
+console.log(POTATO)
 ```
 
 ```js
@@ -78,6 +85,8 @@ export const logEnv () => {
 ```
 
 ### js-rules/uppercase-env
+
+Environment variables are constants throughout your applications lifecycle. Uppercasing environment variables helps distinguish them from other identifiers.
 
 ```js
 // ✅

@@ -22,10 +22,7 @@
   "types": "./dist/index.d.ts",
   "files": [
     "README.md",
-    "./dist/index.js",
-    "./dist/index.d.ts",
-    "./dist/destructure-env.js",
-    "./dist/destructure-env.d.ts"
+    "./dist/"
   ],
   "engines": {
     "node": ">=16"
